@@ -1,0 +1,29 @@
+{
+  "name": "cafe-compass-app",
+  "version": "1.0.0",
+  "description": "Cafe Compass is a web application initially designed to help users discover independent coffee shops in Toronto.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MassimoCubello/cafe-compass-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MassimoCubello/cafe-compass-app/issues"
+  },
+  "homepage": "https://github.com/MassimoCubello/cafe-compass-app#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
