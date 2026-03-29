@@ -18,8 +18,6 @@ Cafe Compass is a web application initially designed to help users discover inde
 - `public/details.html`: Coffee shop details page layout.
 - `public/details.js`: Details page logic (cached + live place details fetch and mini-map rendering).
 - `public/styles.css`: Shared styling for home/details pages (responsive layout, visual theme, animations).
-- `.env.example`: Required environment variables template (`GEOAPIFY_API_KEY`, `GOOGLE_MAPS_API_KEY`, `PORT`).
-- `README.md`: Setup instructions, feature summary, and project documentation.
 
 ## Concept
 Cafe Compass is a web application designed to help users discover independent coffee shops in Toronto. 
