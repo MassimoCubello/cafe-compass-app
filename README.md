@@ -1,30 +1,6 @@
 # cafe-compass-app
 Cafe Compass is a web application initially designed to help users discover independent coffee shops in Toronto. 
 
-## Run Locally
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-2. Create a `.env` file in the project root:
-
-```bash
-GEOAPIFY_API_KEY=your_geoapify_key
-GOOGLE_MAPS_API_KEY=your_google_maps_javascript_key
-PORT=3000
-```
-
-3. Start the app:
-
-```bash
-npm run dev
-```
-
-4. Open `http://localhost:3000`.
-
 ## What The App Includes
 
 - Interactive Google Map centered on Toronto.
