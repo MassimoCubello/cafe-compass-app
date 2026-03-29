@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Theme variables used across the full app. */
+:root {
+  --ink: #1f1c17;
+  --bg: #f6f0e5;
+  --surface: #fff8eb;
+  --accent: #1e785d;
+  --accent-strong: #14503f;
+  --warm: #c36d29;
+  --line: #e3d8c7;
+  --shadow: 0 12px 30px rgba(58, 35, 15, 0.12);
+}
+
+/* Global reset for predictable box sizing. */
+* {
+  box-sizing: border-box;
+}
+
+/* Base page typography, color, and atmospheric layered background. */
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Raleway", sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* Hero section container and spacing. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+
+/* Inner hero content width and stacking context above glow effect. */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Main headline typography treatment. */
+.hero h1 {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  letter-spacing: 0.06em;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+}
+
+/* Small uppercase label above the title. */
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--warm);
+}
+
+/* Supporting line below title. */
+.subtitle {
+  margin: 0.6rem 0 0;
+  max-width: 580px;
+  font-size: 1.05rem;
+}
+
+/* Main two-column page layout (controls + map). */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.2rem 1.5rem;
+}
+
+/* Shared card appearance for panel-like surfaces. */
+.control-panel,
+.map-panel,
+.details-card,
+.mini-map-wrapper {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 248, 235, 0.9), rgba(255, 248, 235, 0.98));
+  box-shadow: var(--shadow);
+}
+
+/* Left panel sizing and scrolling behavior. */
+.control-panel {
+  padding: 1rem;
+  max-height: 74vh;
+  overflow: auto;
+}
+
+/* Vertical spacing for search form controls. */
+.search-form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+/* Form label typography. */
+label {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Shared form controls/button base style. */
+input,
+select,
+button {
+  font-family: inherit;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: 0.66rem 0.75rem;
+  font-size: 0.96rem;
+}
+
+/* Accessible focus ring for keyboard navigation. */
+input:focus,
+select:focus,
+button:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent), white 45%);
+  outline-offset: 1px;
+}
+
+/* Checkbox row alignment for "include chains" control. */
+.toggle-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-weight: 500;
+}
+
+/* Checkbox size normalization. */
+.toggle-row input {
+  width: 18px;
+  height: 18px;
+}
+
+/* Search action button row layout. */
+.actions {
+  display: flex;
+  gap: 0.65rem;
+}
+
+/* Shared interactive button behavior. */
+.btn-primary,
+.btn-secondary {
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+/* Primary call-to-action button color treatment. */
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(130deg, var(--accent), var(--accent-strong));
+}
+
+/* Secondary action button color treatment. */
+.btn-secondary {
+  color: var(--ink);
+  background: linear-gradient(130deg, #eadcc4, #f2e8d5);
+}
+
+/* Shared hover affordance for action buttons. */
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(31, 28, 23, 0.18);
+}
+
+/* Status text style for load/error/success feedback. */
+.status {
+  margin: 0.8rem 0;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--ink), var(--accent) 30%);
+}
+
+/* Results list container reset and spacing. */
+.results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+/* Individual cafe result row card style + entrance animation. */
+.result-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.72rem;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(8px);
+  opacity: 0;
+  animation: riseIn 0.32s forwards;
+}
+
+/* Result title style. */
+.result-item h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Result secondary text style. */
+.result-item p {
+  margin: 0.32rem 0;
+  font-size: 0.92rem;
+}
+
+/* Distance badge style for "Near Me" mode. */
+.distance {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Shared link styling for details and back links. */
+.details-link,
+.back-link {
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Link hover state for readability and affordance. */
+.details-link:hover,
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Outer padding around map cards. */
+.map-panel {
+  padding: 0.6rem;
+}
+
+/* Shared map element sizing and rounded corners. */
+#map,
+#mini-map {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Home map height. */
+#map {
+  height: 74vh;
+}
+
+/* Details page mini map height. */
+#mini-map {
+  height: 300px;
+}
+
+/* Compact spacing inside map popup content. */
+.info-window p {
+  margin: 0.3rem 0;
+}
+
+/* Outer layout for details page. */
+.details-page {
+  display: flex;
+  justify-content: center;
+  padding: 1.4rem;
+}
+
+/* Details page main grid wrapper. */
+.details-layout {
+  width: min(960px, 100%);
+  display: grid;
+  gap: 1rem;
+}
+
+/* Padding for details information card. */
+.details-card {
+  padding: 1.2rem;
+}
+
+/* Details page heading typography. */
+.details-card h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+/* Spacing for address line under heading. */
+.details-card > p {
+  margin-top: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive two-dimensional grid for key/value detail fields. */
+.details-grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+/* Detail label style (dt). */
+.details-grid dt {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--warm);
+  font-weight: 700;
+}
+
+/* Detail value style (dd). */
+.details-grid dd {
+  margin: 0.36rem 0 0;
+  font-weight: 600;
+}
+
+/* Inner spacing around mini map card. */
+.mini-map-wrapper {
+  padding: 0.7rem;
+}
+
+/* Subtle upward fade animation for list rows. */
+@keyframes riseIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile/tablet layout adjustments. */
+@media (max-width: 920px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  #map {
+    height: 60vh;
+  }
+
+  .control-panel {
+    max-height: none;
+  }
+}
