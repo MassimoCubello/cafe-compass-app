@@ -75,9 +75,7 @@ body {
 
 /* Card appearance for panel-like surfaces. */
 .control-panel,
-.map-panel,
-.details-card,
-.mini-map-wrapper {
+.map-panel {
   border: 1px solid var(--line);
   border-radius: 16px;
   background: linear-gradient(180deg, rgba(255, 248, 235, 0.9), rgba(255, 248, 235, 0.98));
@@ -143,8 +141,7 @@ button:focus {
 }
 
 /* Shared interactive button behavior. */
-.btn-primary,
-.btn-secondary {
+.btn-primary {
   cursor: pointer;
   border: none;
   font-weight: 700;
@@ -158,14 +155,8 @@ button:focus {
 }
 
 /* Secondary action button color treatment. */
-.btn-secondary {
-  color: var(--ink);
-  background: linear-gradient(130deg, #eadcc4, #f2e8d5);
-}
-
 /* Shared hover affordance for action buttons. */
-.btn-primary:hover,
-.btn-secondary:hover {
+.btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(31, 28, 23, 0.18);
 }
@@ -209,34 +200,13 @@ button:focus {
   font-size: 0.92rem;
 }
 
-/* Distance badge style for "Near Me" mode. */
-.distance {
-  color: var(--accent);
-  font-weight: 700;
-}
-
-/* Shared link styling for details and back links. */
-.details-link,
-.back-link {
-  color: var(--accent-strong);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-/* Link hover state for readability and affordance. */
-.details-link:hover,
-.back-link:hover {
-  text-decoration: underline;
-}
-
 /* Outer padding around map cards. */
 .map-panel {
   padding: 0.6rem;
 }
 
 /* Shared map element sizing and rounded corners. */
-#map,
-#mini-map {
+#map {
   width: 100%;
   border-radius: 12px;
 }
@@ -246,73 +216,9 @@ button:focus {
   height: 74vh;
 }
 
-/* Details page mini map height. */
-#mini-map {
-  height: 300px;
-}
-
 /* Compact spacing inside map popup content. */
 .info-window p {
   margin: 0.3rem 0;
-}
-
-/* Outer layout for details page. */
-.details-page {
-  display: flex;
-  justify-content: center;
-  padding: 1.4rem;
-}
-
-/* Details page main grid wrapper. */
-.details-layout {
-  width: min(960px, 100%);
-  display: grid;
-  gap: 1rem;
-}
-
-/* Padding for details information card. */
-.details-card {
-  padding: 1.2rem;
-}
-
-/* Details page heading typography. */
-.details-card h1 {
-  margin: 0;
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
-}
-
-/* Spacing for address line under heading. */
-.details-card > p {
-  margin-top: 0.45rem;
-  margin-bottom: 1rem;
-}
-
-/* Responsive two-dimensional grid for key/value detail fields. */
-.details-grid {
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.9rem;
-}
-
-/* Detail label style (dt). */
-.details-grid dt {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--warm);
-  font-weight: 700;
-}
-
-/* Detail value style (dd). */
-.details-grid dd {
-  margin: 0.36rem 0 0;
-  font-weight: 600;
-}
-
-/* Inner spacing around mini map card. */
-.mini-map-wrapper {
-  padding: 0.7rem;
 }
 
 /* Subtle upward fade animation for list rows. */
