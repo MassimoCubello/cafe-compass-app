@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const express = require("express");
-const path = require("path");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -89,9 +88,18 @@ async function geocodeTorontoArea(query) {
 // Serves frontend assets from public folder
 app.use(express.static("public"));
 
+// Configure Pug as the server-side view engine.
+app.set("view engine", "pug");
+app.set("views", `${__dirname}/views`);
+
 // Serves the main app page.
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.render("index");
+});
+
+// Serves a simple details page for a single cafe.
+app.get("/cafe/:id", (req, res) => {
+  res.render("details", { cafeId: req.params.id });
 });
 
 // Provides the Google Maps API key and default center to the frontend.
@@ -168,6 +176,35 @@ app.get("/api/cafes", async (req, res) => {
     return res.status(502).json({ error: error.message });
   }
 });
+
+// Returns one cafe by Geoapify place id.
+app.get("/api/cafes/:id", async (req, res) => {
+  if (!GEOAPIFY_API_KEY) {
+    return res.status(500).json({ error: "Missing GEOAPIFY_API_KEY in environment." });
+  }
+
+  const detailsUrl = new URL("https://api.geoapify.com/v2/place-details");
+  detailsUrl.searchParams.set("id", req.params.id);
+  detailsUrl.searchParams.set("apiKey", GEOAPIFY_API_KEY);
+
+  try {
+    const response = await fetch(detailsUrl);
+    if (!response.ok) {
+      throw new Error(`Geoapify place details request failed (${response.status})`);
+    }
+
+    const payload = await response.json();
+    const feature = payload.features?.[0];
+    if (!feature) {
+      return res.status(404).json({ error: "Cafe details not found." });
+    }
+
+    return res.json(toCafe(feature));
+  } catch (error) {
+    return res.status(502).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Cafe Compass server running at http://localhost:${PORT}`);
 });

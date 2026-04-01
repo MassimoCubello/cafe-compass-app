@@ -1,5 +1,4 @@
 # cafe-compass-app
-Cafe Compass is a web application initially designed to help users discover independent coffee shops in Toronto. 
 
 ## What The App Includes
 
@@ -7,14 +6,17 @@ Cafe Compass is a web application initially designed to help users discover inde
 - Geoapify-powered cafe search and marker plotting.
 - Filter to hide large coffee chains by default.
 - Search by neighborhood/address within Toronto.
-- "Near Me" option to search cafes around user location.
+- Dedicated details page with available cafe metadata.
 
-## Files
+## Pages and Routes
 
-- `index.js`: Express server, static hosting, and backend API routes (`/api/config`, `/api/cafes`).
-- `public/index.html`: Home page layout (hero, search controls, map, and results list).
-- `public/app.js`: Home page client logic (Google Maps loading, marker rendering, search/filter logic, and nearby cafes behavior).
-- `public/styles.css`: Shared styling for the home page (responsive layout, visual theme, animations).
+- Home page template: `views/index.pug`
+- Details page template: `views/details.pug`
+- Home page route: `GET /`
+- Details page route: `GET /cafe/:id`
+- Details data endpoint: `GET /api/cafes/:id`
+
+When a user clicks a cafe in the sidebar, they are redirected to `/cafe/:id`, where business details are loaded.
 
 ## Concept
 Cafe Compass is a web application designed to help users discover independent coffee shops in Toronto. 
@@ -53,3 +55,8 @@ This API will be used to display an interactive map on the website. Coffee shop 
     - Coffee shop markers displayed on the map
     - Basic cafe information when markers are clicked
     - Search by neighborhood or address
+
+### Coffee Shop Details Page
+    - Name of the cafe
+    - Address and location
+    - Additional details available from the API

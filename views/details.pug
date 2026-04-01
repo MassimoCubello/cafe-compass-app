@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Cafe Compass | Cafe Details
+    link(rel="stylesheet" href="/styles.css")
+
+  body
+    main.layout(style="grid-template-columns: 1fr;")
+      section.control-panel
+        h1 Cafe Details
+        p
+          a(href="/") Back to map
+
+        // Holds the selected cafe id from the server route.
+        p#cafe-id(data-id=cafeId style="display:none;")
+
+        // Fields are filled by public/details.js.
+        h2#cafe-name Loading...
+        p#cafe-address
+        p
+          strong Phone:
+          |  
+          span#cafe-phone Not listed
+        p
+          strong Website:
+          |  
+          span#cafe-website Not listed
+        p
+          strong Opening Hours:
+          |  
+          span#cafe-hours Not listed
+
+    script(src="/details.js" defer)

@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Cafe Compass | Find Cafes, Not Chains
+
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(rel="stylesheet" href="styles.css")
+
+  body
+    header.hero
+      .hero-content
+        h1 Cafe Compass
+        p.subtitle Discover independent coffee shops across Toronto.
+
+    main.layout
+      section.control-panel(aria-label="Search and filters")
+        form#search-form.search-form
+          label(for="search-input") Search neighborhood or address
+          input#search-input(
+            name="query"
+            type="text"
+            placeholder="Kensington Market, The Annex, Queen West..."
+          )
+
+          label(for="radius-select") Search radius
+          select#radius-select(name="radius")
+            option(value="1000") 1 km
+            option(value="2500" selected) 2.5 km
+            option(value="5000") 5 km
+            option(value="10000") 10 km
+            option(value="25000") 25 km
+
+          label.toggle-row(for="include-chains")
+            input#include-chains(type="checkbox" name="includeChains")
+            | Include major chains
+
+          .actions
+            button.btn-primary(type="submit") Find Cafes
+
+        p#status.status(role="status" aria-live="polite") Loading map and cafes...
+        ul#results.results(aria-label="Cafe results")
+
+      section.map-panel(aria-label="Toronto cafe map")
+        #map
+
+    script(src="app.js" defer)

@@ -21,6 +21,11 @@ function clearMarkers() {
   markers = [];
 }
 
+// Builds the details-page URL for a cafe.
+function detailsUrl(cafeId) {
+  return `/cafe/${encodeURIComponent(cafeId)}`;
+}
+
 // This function renders the cafe list and links rows to map markers.
 function renderResults(cafes) {
   resultsElement.innerHTML = "";
@@ -28,14 +33,10 @@ function renderResults(cafes) {
     for (const cafe of cafes) {
     const item = document.createElement("li");
     item.className = "result-item";
-    item.innerHTML = `<h3>${cafe.name}</h3><p>${cafe.address}</p>`;
-    // SHows info window when clicking on a cafe in the list.
+    item.innerHTML = `<h3>${cafe.name}</h3><p>${cafe.address}</p><p><a href="${detailsUrl(cafe.id)}">View details</a></p>`;
+    // Clicking a result row opens the details page.
     item.addEventListener("click", () => {
-      const marker = markers.find((m) => m.__id === cafe.id);
-      if (!marker) return;
-      map.panTo(marker.getPosition());
-      infoWindow.setContent(`<strong>${cafe.name}</strong><p>${cafe.address}</p>`);
-      infoWindow.open({ map, anchor: marker });
+      window.location.href = detailsUrl(cafe.id);
     });
 
     resultsElement.appendChild(item);
@@ -57,7 +58,7 @@ function renderMarkers(cafes) {
 
     marker.__id = cafe.id;
     marker.addListener("click", () => { // Click listener
-      infoWindow.setContent(`<strong>${cafe.name}</strong><p>${cafe.address}</p>`);
+      infoWindow.setContent(`<strong>${cafe.name}</strong><p>${cafe.address}</p><p><a href="${detailsUrl(cafe.id)}">View details</a></p>`);
       infoWindow.open({ map, anchor: marker });
     });
 
