@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --text: #1f1c17;
-  --background: #f6f0e5;
-  --button: #1e785d;
-  --button-strong: #14503f;
-  --line: #e3d8c7;
+  --text: #000000;
+  --background: #e5f6e7;
+  --button: #78211e;
+  --button-strong: #501414;
+  --line: #c8c7e3;
   --shadow: 0 12px 30px rgba(58, 35, 15, 0.12);
 }
 
@@ -61,7 +61,7 @@ body {
 .map-panel {
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 248, 235, 0.9), rgba(255, 248, 235, 0.98));
+  background: linear-gradient(180deg, rgba(237, 255, 235, 0.9), rgba(235, 255, 244, 0.98));
   box-shadow: var(--shadow);
 }
 
