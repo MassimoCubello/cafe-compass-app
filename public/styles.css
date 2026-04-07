@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Theme variables used across the full app. */
 :root {
-  --ink: #1f1c17;
-  --bg: #f6f0e5;
-  --surface: #fff8eb;
-  --accent: #1e785d;
-  --accent-strong: #14503f;
-  --warm: #c36d29;
+  --text: #1f1c17;
+  --background: #f6f0e5;
+  --button: #1e785d;
+  --button-strong: #14503f;
   --line: #e3d8c7;
   --shadow: 0 12px 30px rgba(58, 35, 15, 0.12);
 }
@@ -16,23 +13,20 @@
   box-sizing: border-box;
 }
 
-/* Base page typography, color, and background. */
 body {
   margin: 0;
-  color: var(--ink);
+  color: var(--text);
   font-family: "Raleway", sans-serif;
-  background: var(--bg);
+  background: var(--background);
   min-height: 100vh;
 }
 
-/* Hero section container and spacing. */
 .hero {
   position: relative;
   overflow: hidden;
   padding: 2.5rem 1.5rem 1.5rem;
 }
 
-/* Inner hero content */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -40,12 +34,11 @@ body {
   margin: 0 auto;
 }
 
-/* Main headline */
 .hero h1 {
   margin: 0;
   font-family: "Bodoni Moda", serif;
   letter-spacing: 0.06em;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: 6rem;
   line-height: 0.95;
 }
 
@@ -55,7 +48,6 @@ body {
   font-size: 1.05rem;
 }
 
-/* Main two-column page layout (controls + map). */
 .layout {
   display: grid;
   grid-template-columns: minmax(280px, 360px) 1fr;
@@ -65,7 +57,6 @@ body {
   padding: 0 1.2rem 1.5rem;
 }
 
-/* Card appearance for panel-like surfaces. */
 .control-panel,
 .map-panel {
   border: 1px solid var(--line);
@@ -74,7 +65,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Left panel sizing and scrolling behavior. */
+/* Left panel behavior. */
 .control-panel {
   padding: 1rem;
   max-height: 74vh;
@@ -87,7 +78,7 @@ body {
   gap: 0.7rem;
 }
 
-/* Form label typography. */
+/* Form label text. */
 label {
   font-weight: 700;
   font-size: 0.95rem;
@@ -108,7 +99,7 @@ button {
 input:focus,
 select:focus,
 button:focus {
-  outline: 2px solid color-mix(in srgb, var(--accent), white 45%);
+  outline: 2px solid color-mix(var(--button), white 45%);
   outline-offset: 1px;
 }
 
@@ -120,47 +111,16 @@ button:focus {
   font-weight: 500;
 }
 
-/* Checkbox size normalization. */
-.toggle-row input {
-  width: 18px;
-  height: 18px;
-}
-
-/* Search action button row layout. */
-.actions {
-  display: flex;
-  gap: 0.65rem;
-}
-
-/* Shared interactive button behavior. */
-.btn-primary {
-  cursor: pointer;
-  border: none;
-  font-weight: 700;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-
-/* Primary call-to-action button color treatment. */
 .btn-primary {
   color: #fff;
-  background: linear-gradient(130deg, var(--accent), var(--accent-strong));
+  background: linear-gradient(130deg, var(--button), var(--button-strong));
 }
 
-/* Secondary action button color treatment. */
-/* Shared hover affordance for action buttons. */
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(31, 28, 23, 0.18);
 }
 
-/* Status text style for load/error/success feedback. */
-.status {
-  margin: 0.8rem 0;
-  font-weight: 600;
-  color: color-mix(in srgb, var(--ink), var(--accent) 30%);
-}
-
-/* Results list container reset and spacing. */
 .results {
   list-style: none;
   padding: 0;
@@ -180,30 +140,26 @@ button:focus {
   animation: riseIn 0.32s forwards;
 }
 
-/* Result title style. */
 .result-item h3 {
   margin: 0;
   font-size: 1rem;
 }
 
-/* Result secondary text style. */
 .result-item p {
   margin: 0.32rem 0;
   font-size: 0.92rem;
 }
 
-/* Outer padding around map cards. */
+/* Padding around map cards. */
 .map-panel {
   padding: 0.6rem;
 }
 
-/* Shared map element sizing and rounded corners. */
 #map {
   width: 100%;
   border-radius: 12px;
 }
 
-/* Home map height. */
 #map {
   height: 74vh;
 }
@@ -213,7 +169,7 @@ button:focus {
   margin: 0.3rem 0;
 }
 
-/* Subtle upward fade animation for list rows. */
+/* Animation for list rows. */
 @keyframes riseIn {
   to {
     transform: translateY(0);
