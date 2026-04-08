@@ -129,7 +129,7 @@ button:focus {
   gap: 0.7rem;
 }
 
-/* Individual cafe result row card style + entrance animation. */
+/* Individual cafe result card style */
 .result-item {
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -150,7 +150,7 @@ button:focus {
   font-size: 0.92rem;
 }
 
-/* Padding around map cards. */
+/* Padding around map cards */
 .map-panel {
   padding: 0.6rem;
 }
@@ -177,7 +177,6 @@ button:focus {
   }
 }
 
-/* Mobile/tablet layout adjustments. */
 @media (max-width: 920px) {
   .layout {
     grid-template-columns: 1fr;

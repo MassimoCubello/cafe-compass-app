@@ -10,7 +10,7 @@ Users will be able to explore cafes around Toronto, view their locations, and se
 ## How To Run
 1. Clone the repository to your local machine.
 2. Download node modules by running `npm install` in the project directory.
-3. Start the development server with `npm start` or `npm run dev` (depending on your setup).
+3. Start the development server with `npm run dev`.
 4. Open your web browser and navigate to `http://localhost:3000` to view the application.
 
 ## Deployment
